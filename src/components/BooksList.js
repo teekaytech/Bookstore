@@ -1,16 +1,32 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import Book from './Book';
 
-function BooksList() {
+const mapStateToProps = state => ({
+  books: state.books,
+});
+
+const BooksList = ({ books }) => {
+  const bookList = books.map(book => (
+    <Book book={book} key={Math.random()} />
+  ));
   return (
     <table>
-      <th>
-        <td>ID</td>
-        <td>title</td>
-        <td>Category</td>
-      </th>
-      <tbody />
+      <thead>
+        <tr>
+          <th>Book ID</th>
+          <th>Title</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>{bookList}</tbody>
     </table>
   );
-}
+};
 
-export default BooksList;
+BooksList.propTypes = {
+  books: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
+export default connect(mapStateToProps)(BooksList);

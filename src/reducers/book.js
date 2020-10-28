@@ -1,13 +1,19 @@
-const books = (state = [], action) => {
+const bookReducer = (state = { books: [] }, action) => {
   if (action.type === 'CREATE_BOOK') {
-    return [...state, action.book];
+    const newBooks = [...state.books, action.book];
+    return {
+      ...state,
+      books: newBooks,
+    };
   }
-
   if (action.type === 'REMOVE_BOOK') {
-    return state.filter(book => book.id !== action.id);
+    const newBooks = state.books.filter(book => book.id !== action.book.id);
+    return {
+      ...state,
+      books: newBooks,
+    };
   }
-
   return state;
 };
 
-export default books;
+export default bookReducer;

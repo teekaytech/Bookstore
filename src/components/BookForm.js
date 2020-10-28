@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import createBook from '../actions/index';
+import { createBook } from '../actions/index';
 
 class BookForm extends Component {
   constructor(props) {
@@ -36,7 +36,6 @@ class BookForm extends Component {
       'Learning',
       'Sci-Fi',
     ];
-    const {categories} = this.state
 
     const catList = categories.map(cat => (
       <option key={Math.random()} value={cat}>
@@ -44,13 +43,15 @@ class BookForm extends Component {
       </option>
     ));
 
-
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="title">Title</label>
-          <input name="title" type="text" />
-          <select name="categories" value={this.categories} onChange={this.handleChange}>
+          <label htmlFor="title">
+            Title
+            <input name="title" type="text" />
+          </label>
+
+          <select name="categories" onChange={this.handleChange}>
             {catList}
           </select>
           <button type="submit">Add book</button>

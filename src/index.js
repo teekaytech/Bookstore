@@ -1,12 +1,12 @@
-import React, { createStore } from 'react';
+import React from 'react';
+import { createStore } from 'redux';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { Provider } from 'react-redux';
 import App from './components/App';
+import bookReducer from './reducers/book';
 
-import rootReducer from './reducers/index';
-
-const state = {
+const initState = {
   books: [
     {
       id: Math.random(),
@@ -29,7 +29,7 @@ const state = {
   ],
 };
 
-const store = createStore(rootReducer, state);
+const store = createStore(bookReducer, initState);
 
 ReactDOM.render(
   <React.StrictMode>
