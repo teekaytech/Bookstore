@@ -1,9 +1,34 @@
 import React from 'react';
 
-export default function BookForm() {
-  return (
-    <div>
-      <h5>hey hey hey</h5>
-    </div>
-  );
+export default class BookForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      category: '',
+      title: '',
+    };
+  }
+
+  render() {
+    const categories = [
+      'Action',
+      'Biography',
+      'History',
+      'Horror',
+      'Kids',
+      'Learning',
+      'Sci-Fi',
+    ];
+    return (
+      <div>
+        <form>
+          <input type="text" />
+          <select>
+            <option>options</option>
+          </select>
+          <button type="submit">Add book</button>
+        </form>
+      </div>
+    );
+  }
 }
