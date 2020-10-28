@@ -1,5 +1,4 @@
 import React from 'react';
-import { createStore } from 'redux';
 
 function BooksList() {
   return (
@@ -13,3 +12,5 @@ function BooksList() {
     </table>
   );
 }
+
+export default BooksList;
