@@ -40,7 +40,7 @@ class BookForm extends Component {
       'Learning',
       'Sci-Fi',
     ];
-
+/* eslint-disable */
     const catList = categories.map(cat => (
       <option key={Math.random()} value={cat}>
         {cat}
@@ -55,7 +55,7 @@ class BookForm extends Component {
             <input name="title" type="text" onChange={this.handleChange} />
           </label>
 
-          <select name="category" onChange={this.handleChange}>
+          <select name="category" onChange={this.handleChange} value={this.state.category}>
             {catList}
           </select>
           <button type="submit">Add book</button>
@@ -64,7 +64,7 @@ class BookForm extends Component {
     );
   }
 }
-
+/* eslint-enable */
 const mapDispatchToProps = dispatch => ({
   createBook: book => { dispatch(createBook(book)); },
 });
