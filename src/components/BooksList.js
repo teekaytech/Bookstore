@@ -23,10 +23,10 @@ const BooksList = ({ books }) => {
   );
 };
 
-removeBook = id => {
-  const { removeBook } = this.props;
-  removeBook(id);
-};
+// removeBook = id => {
+//   const { removeBook } = this.props;
+//   removeBook(id);
+// };
 
 BooksList.propTypes = {
   books: PropTypes.arrayOf(PropTypes.object).isRequired,

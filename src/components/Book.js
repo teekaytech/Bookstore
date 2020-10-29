@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 /* eslint-disable */
 const Book = props => {
-  const { book } = props;
+  const { book, removeBook} = props;
   
   return (
     <tr>
       <td>{book.id}</td>
       <td>{book.title}</td>
       <td>{book.category}</td>
-      <td><button type="submit">remove</button></td>
+      <td><button type="submit" onClick={removeBook}>remove</button></td>
     </tr>
   );
 };
