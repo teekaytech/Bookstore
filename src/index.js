@@ -9,19 +9,19 @@ import rootReducer from './reducers/index';
 const initState = {
   books: [
     {
-      id: Math.random(),
+      id: Math.floor(Math.random() * 10),
       title: 'lord of the rings',
       category: 'adventure',
     },
 
     {
-      id: Math.random(),
+      id: Math.floor(Math.random() * 10),
       title: 'Harry potter',
       category: 'adventure',
     },
 
     {
-      id: Math.random(),
+      id: Math.floor(Math.random() * 10),
       title: 'The Hobbit',
       category: 'adventure',
     },

@@ -25,13 +25,14 @@ class BookForm extends Component {
 
   handleChange = e => {
     this.setState({
-      id: Math.random(),
+      id: Math.floor(Math.random() * 50),
       [e.target.name]: e.target.value,
     });
   }
 
   render() {
     const categories = [
+      'select',
       'Action',
       'Biography',
       'History',
