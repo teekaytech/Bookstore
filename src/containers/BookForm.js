@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { createBook } from '../actions/index';
 
 class BookForm extends Component {
@@ -16,7 +17,6 @@ class BookForm extends Component {
   }
 
   handleSubmit = event => {
-    // eslint-disable-next-line react/prop-types
     const { createBook } = this.props;
     event.preventDefault();
     createBook(this.state);
@@ -40,12 +40,14 @@ class BookForm extends Component {
       'Learning',
       'Sci-Fi',
     ];
-/* eslint-disable */
+
     const catList = categories.map(cat => (
       <option key={Math.random()} value={cat}>
         {cat}
       </option>
     ));
+
+    const { category } = this.state;
 
     return (
       <div>
@@ -55,7 +57,7 @@ class BookForm extends Component {
             <input name="title" type="text" onChange={this.handleChange} />
           </label>
 
-          <select name="category" onChange={this.handleChange} value={this.state.category}>
+          <select name="category" onChange={this.handleChange} value={category}>
             {catList}
           </select>
           <button type="submit">Add book</button>
@@ -64,7 +66,11 @@ class BookForm extends Component {
     );
   }
 }
-/* eslint-enable */
+
+BookForm.propTypes = {
+  createBook: PropTypes.func.isRequired,
+};
+
 const mapDispatchToProps = dispatch => ({
   createBook: book => { dispatch(createBook(book)); },
 });

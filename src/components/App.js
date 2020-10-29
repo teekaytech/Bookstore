@@ -1,6 +1,6 @@
 import React from 'react';
-import BookForm from './BookForm';
-import BooksList from './BooksList';
+import BookForm from '../containers/BookForm';
+import BooksList from '../containers/BooksList';
 
 function App() {
   return (
