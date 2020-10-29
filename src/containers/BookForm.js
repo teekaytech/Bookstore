@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { createBook } from '../actions/index';
 
 class BookForm extends Component {
@@ -16,7 +17,6 @@ class BookForm extends Component {
   }
 
   handleSubmit = event => {
-    // eslint-disable-next-line react/prop-types
     const { createBook } = this.props;
     event.preventDefault();
     createBook(this.state);
@@ -64,6 +64,10 @@ class BookForm extends Component {
     );
   }
 }
+
+BookForm.propTypes = {
+  createBook: PropTypes.func.isRequired,
+};
 
 const mapDispatchToProps = dispatch => ({
   createBook: book => { dispatch(createBook(book)); },
