@@ -1,10 +1,7 @@
-const booksReducer = (state = {}, action) => {
+const booksReducer = (state = [], action) => {
   if (action.type === 'CREATE_BOOK') {
-    const newBooks = [...state.books, action.book];
-    return {
-      ...state,
-      books: newBooks,
-    };
+    const newBooks = [...state, action.book];
+    return newBooks;
   }
   if (action.type === 'REMOVE_BOOK') {
     const newBooks = state.books.filter(book => book.id !== action.book.id);

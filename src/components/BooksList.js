@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Book from './Book';
 
-const mapStateToProps = state => ({
-  books: state.books,
-});
-
 const BooksList = ({ books }) => {
   const bookList = books.map(book => (
     <Book book={book} key={Math.random()} />
@@ -29,4 +25,9 @@ BooksList.propTypes = {
   books: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export default connect(mapStateToProps)(BooksList);
+const mapStateToProps = state => ({
+  books: state.books,
+
+});
+
+export default connect(mapStateToProps, null)(BooksList);

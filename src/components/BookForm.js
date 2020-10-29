@@ -6,8 +6,9 @@ class BookForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      category: '',
+      id: null,
       title: '',
+      category: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -15,15 +16,18 @@ class BookForm extends Component {
   }
 
   handleSubmit = event => {
+    // eslint-disable-next-line react/prop-types
+    const { createBook } = this.props;
     event.preventDefault();
     createBook(this.state);
+    event.target.reset();
   }
 
   handleChange = e => {
-    this.setState = {
-      id: Math.random,
+    this.setState({
+      id: Math.random(),
       [e.target.name]: e.target.value,
-    };
+    });
   }
 
   render() {
@@ -48,10 +52,10 @@ class BookForm extends Component {
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="title">
             Title
-            <input name="title" type="text" />
+            <input name="title" type="text" onChange={this.handleChange} />
           </label>
 
-          <select name="categories" onChange={this.handleChange}>
+          <select name="category" onChange={this.handleChange}>
             {catList}
           </select>
           <button type="submit">Add book</button>
