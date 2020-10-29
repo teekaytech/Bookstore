@@ -1,4 +1,4 @@
-const bookReducer = (state = { books: [] }, action) => {
+const booksReducer = (state = {}, action) => {
   if (action.type === 'CREATE_BOOK') {
     const newBooks = [...state.books, action.book];
     return {
@@ -16,4 +16,4 @@ const bookReducer = (state = { books: [] }, action) => {
   return state;
 };
 
-export default bookReducer;
+export default booksReducer;
