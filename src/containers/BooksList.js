@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -22,6 +21,7 @@ class BooksList extends Component {
   render() {
     const { books, filter } = this.props;
     const filteredBooks = this.filterBooks(filter, books);
+
     const bookList = filteredBooks.map(book => (
       <Book
         book={book}
@@ -29,6 +29,7 @@ class BooksList extends Component {
         key={Math.random()}
       />
     ));
+
     return (
       <div>
         <CategoryFilter bookFilter={this.handleFilterChange} />
