@@ -1,4 +1,4 @@
-const filter = (state = 'lord of the rings', action) => {
+const filter = (state = 'ALL', action) => {
   if (action.type === 'CHANGE_FILTER') {
     return action.category;
   }
