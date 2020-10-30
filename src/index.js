@@ -27,6 +27,8 @@ const initState = {
     },
 
   ],
+
+   filter: 'ALL'
 };
 
 const store = createStore(rootReducer, initState);

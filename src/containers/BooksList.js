@@ -2,13 +2,19 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Book from '../components/Book';
-import { removeBook } from '../actions/index';
+import { removeBook, filter  } from '../actions/index';
+import CategoryFilter from '../components/categoryFilter';
 
 class BooksList extends Component {
   handleRemoveBook = book => {
     const { removeBook } = this.props;
     removeBook(book);
   };
+
+  handleFilterChange = category => {
+    const { filter } = this.props
+    filter(category)
+  }
 
   render() {
     const { books } = this.props;
@@ -20,17 +26,20 @@ class BooksList extends Component {
       />
     ));
     return (
-      <table>
-        <thead>
-          <tr>
-            <th>Book ID</th>
-            <th>Title</th>
-            <th>Category</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>{bookList}</tbody>
-      </table>
+      <div>
+        <CategoryFilter bookFilter={this.handleFilterChange}/>
+        <table>
+          <thead>
+            <tr>
+              <th>Book ID</th>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>{bookList}</tbody>
+        </table>
+      </div>
     );
   }
 }
@@ -48,6 +57,10 @@ const mapDispatchToProps = dispatch => ({
   removeBook: book => {
     dispatch(removeBook(book));
   },
+
+  bookfilter: category => {
+    dispatch(filter(category))
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BooksList);
