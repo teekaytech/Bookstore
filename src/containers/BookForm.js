@@ -20,18 +20,19 @@ class BookForm extends Component {
     const { createBook } = this.props;
     event.preventDefault();
     createBook(this.state);
-    event.target.reset();
+    this.setState({ title: '', category: '' });
   }
 
   handleChange = e => {
     this.setState({
-      id: Math.random(),
+      id: Math.floor(Math.random() * 50),
       [e.target.name]: e.target.value,
     });
   }
 
   render() {
     const categories = [
+      'select',
       'Action',
       'Biography',
       'History',
@@ -47,15 +48,17 @@ class BookForm extends Component {
       </option>
     ));
 
+    const { title, category } = this.state;
+
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="title">
             Title
-            <input name="title" type="text" onChange={this.handleChange} />
+            <input name="title" type="text" onChange={this.handleChange} value={title} />
           </label>
 
-          <select name="category" onChange={this.handleChange}>
+          <select name="category" onChange={this.handleChange} value={category}>
             {catList}
           </select>
           <button type="submit">Add book</button>
