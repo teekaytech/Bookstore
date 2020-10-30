@@ -19,10 +19,12 @@ const Book = props => {
 };
 
 Book.propTypes = {
-  book: PropTypes.objectOf(
-    PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  ).isRequired,
   handleRemoveBook: PropTypes.func.isRequired,
+  book: PropTypes.exact({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    category: PropTypes.string,
+  }).isRequired,
 };
 
 export default Book;

@@ -20,7 +20,7 @@ class BookForm extends Component {
     const { createBook } = this.props;
     event.preventDefault();
     createBook(this.state);
-    event.target.reset();
+    this.setState({ title: '', category: '' });
   }
 
   handleChange = e => {
@@ -48,14 +48,14 @@ class BookForm extends Component {
       </option>
     ));
 
-    const { category } = this.state;
+    const { title, category } = this.state;
 
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="title">
             Title
-            <input name="title" type="text" onChange={this.handleChange} />
+            <input name="title" type="text" onChange={this.handleChange} value={title} />
           </label>
 
           <select name="category" onChange={this.handleChange} value={category}>

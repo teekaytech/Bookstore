@@ -26,7 +26,7 @@ class BooksList extends Component {
             <th>Book ID</th>
             <th>Title</th>
             <th>Category</th>
-            <th>Remove Book</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>{bookList}</tbody>
@@ -42,7 +42,6 @@ BooksList.propTypes = {
 
 const mapStateToProps = state => ({
   books: state.books,
-
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -50,4 +49,5 @@ const mapDispatchToProps = dispatch => ({
     dispatch(removeBook(book));
   },
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(BooksList);
