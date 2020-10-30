@@ -1,8 +1,8 @@
-const filter = (state = 'ALL', action) => {
+const filter = (state = [], action) => {
   if (action.type === 'CHANGE_FILTER') {
-    return action.category;
+    const newFilter = action.category === 'All' ? '' : action.category;
+    return newFilter;
   }
-
   return state;
 };
 

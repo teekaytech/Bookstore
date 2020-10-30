@@ -1,9 +1,10 @@
+/* eslint-disable no-undef */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Book from '../components/Book';
-import { removeBook, filter  } from '../actions/index';
-import CategoryFilter from '../components/categoryFilter';
+import { removeBook, filter } from '../actions/index';
+import CategoryFilter from '../components/CategoryFilter';
 
 class BooksList extends Component {
   handleRemoveBook = book => {
@@ -12,13 +13,16 @@ class BooksList extends Component {
   };
 
   handleFilterChange = category => {
-    const { filter } = this.props
-    filter(category)
+    const { handleFilter } = this.props;
+    handleFilter(category);
   }
 
+  filterBooks = (filter, books) => (filter === '' ? books : books.filter(book => book.category === filter))
+
   render() {
-    const { books } = this.props;
-    const bookList = books.map(book => (
+    const { books, filter } = this.props;
+    const filteredBooks = this.filterBooks(filter, books);
+    const bookList = filteredBooks.map(book => (
       <Book
         book={book}
         handleRemoveBook={this.handleRemoveBook}
@@ -27,7 +31,7 @@ class BooksList extends Component {
     ));
     return (
       <div>
-        <CategoryFilter bookFilter={this.handleFilterChange}/>
+        <CategoryFilter bookFilter={this.handleFilterChange} />
         <table>
           <thead>
             <tr>
@@ -47,20 +51,22 @@ class BooksList extends Component {
 BooksList.propTypes = {
   books: PropTypes.arrayOf(PropTypes.object).isRequired,
   removeBook: PropTypes.func.isRequired,
+  handleFilter: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
   books: state.books,
+  filter: state.filter,
 });
 
 const mapDispatchToProps = dispatch => ({
   removeBook: book => {
     dispatch(removeBook(book));
   },
-
-  bookfilter: category => {
-    dispatch(filter(category))
-  }
+  handleFilter: category => {
+    dispatch(filter(category));
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BooksList);

@@ -11,24 +11,23 @@ const initState = {
     {
       id: Math.floor(Math.random() * 10),
       title: 'lord of the rings',
-      category: 'adventure',
+      category: 'Action',
     },
 
     {
       id: Math.floor(Math.random() * 10),
       title: 'Harry potter',
-      category: 'adventure',
+      category: 'Horror',
     },
 
     {
       id: Math.floor(Math.random() * 10),
       title: 'The Hobbit',
-      category: 'adventure',
+      category: 'Sci-Fi',
     },
 
   ],
-
-   filter: 'ALL'
+  filter: '',
 };
 
 const store = createStore(rootReducer, initState);
