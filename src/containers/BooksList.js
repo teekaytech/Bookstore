@@ -45,16 +45,9 @@ class BooksList extends Component {
             <div><i className="fa fa-user-o" aria-hidden="true" /></div>
           </div>
         </div>
-        <div>
+        <div className="books-table">
           <table>
-            <thead>
-              <tr>
-                <th>Book ID</th>
-                <th>Title</th>
-                <th>Category</th>
-                <th>Action</th>
-              </tr>
-            </thead>
+            <thead />
             <tbody>{bookList}</tbody>
           </table>
         </div>
