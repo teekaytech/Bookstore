@@ -51,17 +51,18 @@ class BookForm extends Component {
     const { title, category } = this.state;
 
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="book-form-div">
+        <hr className="hr" />
+        <h3 className="new-book-title">ADD NEW BOOK</h3>
+        <form onSubmit={this.handleSubmit} className="book-form">
           <label htmlFor="title">
-            Title
-            <input name="title" type="text" onChange={this.handleChange} value={title} />
+            <input placeholder="Book Title" className="form-title" name="title" type="text" onChange={this.handleChange} value={title} />
           </label>
 
-          <select name="category" onChange={this.handleChange} value={category}>
+          <select name="category" onChange={this.handleChange} value={category} className="select-cat">
             {catList}
           </select>
-          <button type="submit">Add book</button>
+          <button type="submit" className="add-book-btn">Add book</button>
         </form>
       </div>
     );
