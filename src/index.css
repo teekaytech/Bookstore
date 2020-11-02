@@ -14,6 +14,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgba(45, 45, 45, 0.03);
 }
 
 code {
@@ -24,4 +25,61 @@ code {
     Consolas,
     'Courier New',
     monospace;
+}
+
+.header {
+  background-color: white;
+}
+
+.header-items {
+  display: flex;
+  width: 40%;
+  justify-content: space-evenly;
+  float: left;
+}
+
+.user-icon {
+  float: right;
+  display: flex;
+  justify-content: center;
+  width: 10%;
+  margin-top: 15px;
+}
+
+.main-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.select {
+  display: flex;
+  align-items: center;
+}
+
+.cms {
+  color: #507bff;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.books {
+  display: flex;
+  align-items: center;
+}
+
+.books p {
+  font-size: 12px;
+}
+
+.category {
+  margin-right: 20px;
+}
+
+.fa-user-o {
+  color: #507bff;
+  border: 2px solid rgb(141, 136, 136);
+  padding: 10px;
+  border-radius: 50%;
+  font-weight: 700;
+
 }

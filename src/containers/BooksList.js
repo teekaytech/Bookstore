@@ -31,19 +31,33 @@ class BooksList extends Component {
     ));
 
     return (
-      <div>
-        <CategoryFilter bookFilter={this.handleFilterChange} />
-        <table>
-          <thead>
-            <tr>
-              <th>Book ID</th>
-              <th>Title</th>
-              <th>Category</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>{bookList}</tbody>
-        </table>
+      <div className="main-div">
+        <div className="header">
+          <div className="header-items">
+            <p className="cms">BOOKSTORE CMS</p>
+            <div className="books"><p>BOOKS</p></div>
+            <div className="select">
+              <div className="category">Categories</div>
+              <CategoryFilter bookFilter={this.handleFilterChange} />
+            </div>
+          </div>
+          <div className="user-icon">
+            <div><i className="fa fa-user-o" aria-hidden="true" /></div>
+          </div>
+        </div>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Book ID</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>{bookList}</tbody>
+          </table>
+        </div>
       </div>
     );
   }
