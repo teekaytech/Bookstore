@@ -6,7 +6,7 @@
 
 > A bookstore application built with React and Redux
 
-![screenshot](./app_screenshot.png)
+![screenshot](./public/screenshot.png)
 
 Additional description about the project and its features.
 
